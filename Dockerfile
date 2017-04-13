@@ -29,9 +29,12 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
-
+RUN ls
 RUN git clone https://github.com/MatousJobanek/my-k8s-client.git
 RUN ls my-k8s-client
+
+ENV KUBERNETES_AUTH_BASIC_USERNAME admin
+ENV KUBERNETES_AUTH_BASIC_PASSWORD admin
 ENV KUBERNETES_CERTS_CA_FILE my-k8s-client/ca.crt
 
 CMD ["mvn","clean", "package", "-f", "my-k8s-client/pom.xml"]
