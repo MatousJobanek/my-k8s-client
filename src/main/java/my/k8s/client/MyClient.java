@@ -14,7 +14,7 @@ public class MyClient {
         Config config = new ConfigBuilder().withMasterUrl("https://192.168.99.100:8443/")
             .withUsername("admin")
             .withPassword("admin")
-            .withCaCertFile(System.getProperty("user.dir") + "/" + "ca.crt")
+            .withCaCertFile("/my-k8s-client/" + "ca.crt")
             .build();
 
         DefaultOpenShiftClient client = new DefaultOpenShiftClient(config);
