@@ -11,7 +11,7 @@ public class MyClient {
     public static void main(String[] args){
 
         ///home/mjobanek/cert/rootCA.key
-        Config config = new ConfigBuilder().withMasterUrl("https://192.168.99.100:8443/").withCaCertFile("/home/mjobanek/cert/ca.crt").build();
+        Config config = new ConfigBuilder().withMasterUrl("https://192.168.99.100:8443/").withCaCertFile(System.getProperty("user.dir" + "/") + "ca.crt").build();
 
         DefaultKubernetesClient client = new DefaultKubernetesClient(config);
 
