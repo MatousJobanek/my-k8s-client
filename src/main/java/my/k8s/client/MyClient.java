@@ -19,8 +19,13 @@ public class MyClient {
 
         DefaultOpenShiftClient client = new DefaultOpenShiftClient(config);
 
+        System.out.println(client.getApiVersion());
+
         NamespaceList namespaceList = client.namespaces().list();
+        System.out.println(namespaceList.getItems());
         ServiceList serviceList = client.services().list();
+        System.out.println(serviceList.getItems());
         ServiceList defaultServicesList = client.services().inNamespace("default").list();
+        System.out.println(defaultServicesList.getItems());
     }
 }
