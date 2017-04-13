@@ -37,4 +37,8 @@ ENV KUBERNETES_AUTH_BASIC_USERNAME admin
 ENV KUBERNETES_AUTH_BASIC_PASSWORD admin
 ENV KUBERNETES_CERTS_CA_FILE my-k8s-client/ca.crt
 
-CMD ["mvn","clean", "package", "-f", "my-k8s-client/pom.xml"]
+RUN mvn clean install -f my-k8s-client/pom.xml
+
+#RUN java
+
+CMD ["java","-jar","my-k8s-client/target/my-k8s-client-1.0-SNAPSHOT.jar"]
